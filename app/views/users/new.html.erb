@@ -2,18 +2,9 @@
     <h1>Sign up</h1>
 </div>
 <div>
-    <% if @user.errors.any? %>
-    <div id="error_explanation">
-        <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-        </ul>
-    </div>
-    <% end %>
     <div>
     <%= form_with(model: @user,local: true) do |f| %>
-
+      <%= render 'layouts/error_messages',model: f.object %>
     
         <%= f.label :name, 'Name' %>
         <%= f.text_field :name %>
