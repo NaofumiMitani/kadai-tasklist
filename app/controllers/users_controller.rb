@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def show
-    redirect_to root_url
-  end
-
   def new
     @user=User.new
   end
@@ -13,7 +9,7 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success]='ユーザー登録しました'
-      redirect_to @user
+      redirect_to root_url
     else
       flash.now[:danger]='ユーザ登録に失敗しました'
       render :new
