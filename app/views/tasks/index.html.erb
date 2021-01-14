@@ -1,24 +1,6 @@
-<% if logged_in?%>
 <h1>タスク一覧</h1>
   <div>
     <%= render 'tasks/tasks',tasks: @tasks %>
     <%= link_to '新規タスクの投稿', new_task_path %>
     <%= link_to 'ログアウト', logout_path,method: :delete%>
   </div>
-<% else %>
-<h1>ログイン</h1>
-<%= form_with(model: @task,local: true) do |f| %>
-
-    <%= f.label :email,'Email' %>
-    <%= f.email_field :email,class: 'form-control' %>
-    
-    <%= f.label :password,'Password'%>
-    <%= f.password_field :password,class: 'form-control' %>
-    
-    <%= f.submit 'Log in'%>
-
-<% end %>
-
-<p>新規登録→ <%= link_to 'Sign up now!',signup_path %></p>
-
-<% end %>
